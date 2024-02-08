@@ -90,15 +90,15 @@ resource "random_password" "pbx-ssh-password" {
   special          = true
 }
 
-resource "random_password" "pbx-web-password" {
-  length           = 20
-  special          = true
-}
+#resource "random_password" "pbx-web-password" {
+#  length           = 20
+#  special          = true
+#}
 
-resource "random_password" "pbx-superset-password" {
-  length           = 20
-  special          = true
-}
+#resource "random_password" "pbx-superset-password" {
+#  length           = 20
+#  special          = true
+#}
 
 #output "random_password_result" {
 #  value = random_password.pbx-local-password.result
@@ -181,33 +181,33 @@ output "ssh_public_key" {
   value = azurerm_key_vault_secret.rsa_vm_ssh_private
 }
 
-resource "azurerm_key_vault_secret" "save_password_web_vault" {
-  name         = "${var.vm_name}-webadmin"
-  value        = "${random_password.pbx-web-password.result}"
-  content_type = "https://${data.azurerm_public_ip.pbx-public-ip.ip_address}:5001"
-  key_vault_id = azurerm_key_vault.pbx_vault.id
+#resource "azurerm_key_vault_secret" "save_password_web_vault" {
+#  name         = "${var.vm_name}-webadmin"
+#  value        = "${random_password.pbx-web-password.result}"
+#  content_type = "https://${data.azurerm_public_ip.pbx-public-ip.ip_address}:5001"
+#  key_vault_id = azurerm_key_vault.pbx_vault.id
+#
+#  depends_on = [azurerm_role_assignment.role-secret-officer]
+#
+#  lifecycle {
+#    prevent_destroy = true
+#    ignore_changes = [ value ]
+#  }
+#
+#}
 
-  depends_on = [azurerm_role_assignment.role-secret-officer]
-
-  lifecycle {
-    prevent_destroy = true
-    ignore_changes = [ value ]
-  }
-
-}
-
-resource "azurerm_key_vault_secret" "save_password_superset_vault" {
-  name         = "${var.vm_name}-superset-admin"
-  value        = "${random_password.pbx-superset-password.result}"
-  key_vault_id = azurerm_key_vault.pbx_vault.id
-
-  depends_on = [azurerm_role_assignment.role-secret-officer]
-
-  lifecycle {
-    prevent_destroy = true
-    ignore_changes = [ value ]
-  }
-}
+#resource "azurerm_key_vault_secret" "save_password_superset_vault" {
+#  name         = "${var.vm_name}-superset-admin"
+#  value        = "${random_password.pbx-superset-password.result}"
+#  key_vault_id = azurerm_key_vault.pbx_vault.id
+#
+#  depends_on = [azurerm_role_assignment.role-secret-officer]
+#
+#  lifecycle {
+#    prevent_destroy = true
+#    ignore_changes = [ value ]
+#  }
+#}
 
 # Create a resource group
 resource "azurerm_resource_group" "RG-3CX-GROUP" {
