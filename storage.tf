@@ -40,7 +40,7 @@ resource "azurerm_storage_account" "storage" {
   account_kind             = "StorageV2"
   nfsv3_enabled             = "true"
   is_hns_enabled            = "true"
-  enable_https_traffic_only = "false"
+  https_traffic_only_enabled = "false"
 
   network_rules {
     default_action             = "Deny"
