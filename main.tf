@@ -481,7 +481,7 @@ resource "azurerm_network_interface" "pbx-network-interface" {
   name                      = "${var.vm_name}-nic"
   location                  = "${var.region}"
   resource_group_name       = azurerm_resource_group.RG-3CX-GROUP.name
-  enable_accelerated_networking = "${var.enable_accelerated_networking}"
+  accelerated_networking_enabled = "${var.enable_accelerated_networking}"
   dns_servers = ["8.8.8.8","1.1.1.1"]
 
   ip_configuration {
