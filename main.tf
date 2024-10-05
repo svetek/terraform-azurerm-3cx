@@ -242,8 +242,7 @@ resource "azurerm_subnet" "pbx-virtual-subnet" {
   virtual_network_name = azurerm_virtual_network.pbx-virtual-network.name
   address_prefixes       = ["10.0.0.0/29"]
   service_endpoints    = ["Microsoft.Storage"]
-#  enforce_private_link_endpoint_network_policies = true
-  private_endpoint_network_policies_enabled=true
+  private_endpoint_network_policies=true
 }
 
 
