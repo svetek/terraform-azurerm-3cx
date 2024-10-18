@@ -579,9 +579,9 @@ resource "azurerm_virtual_machine" "pbx" {
 #}
 
 resource "azurerm_monitor_action_group" "ag" {
-  name                = "support_group"
+  name                = "${var.vm_name}_support_group"
   resource_group_name = azurerm_resource_group.RG-3CX-GROUP.name
-  short_name          = "support_g"
+  short_name          = "${var.vm_name}_sg"
 
 
   arm_role_receiver {
