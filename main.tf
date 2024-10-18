@@ -584,12 +584,11 @@ resource "azurerm_monitor_action_group" "ag" {
   short_name          = "${var.vm_name}_sg"
 
 
-  arm_role_receiver {
-    name                    = "owner"
-    role_id                 = "de139f84-1756-47ae-9be6-808fbbe84772"
-#    role_id = data.azurerm_role_definition.owner.role_definition_id
-    use_common_alert_schema = true
-  }
+#   arm_role_receiver {
+#     name                    = "owner"
+#     role_id                 = "de139f84-1756-47ae-9be6-808fbbe84772"
+#     use_common_alert_schema = true
+#   }
 
   email_receiver {
     name                    = "support"
