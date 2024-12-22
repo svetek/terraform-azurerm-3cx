@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Call Reports Email</title>
+</head>
+<body style="background-color:#eeeeee; margin: 0 !important; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; padding: 0 !important; height: 100% !important; width: 100% !important;" yahoo="yahoo">
+<table style="padding-bottom: 50px; background-color:#eeeeee; border-collapse: separate !important; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; border-spacing: 0 !important; table-layout: medium !important; margin: 0 auto !important; color: #0596D4; border-width: thin;">
+    <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+        <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;">
+            <center style="width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                <table cellspacing="0" cellpadding="0" border="0" align="center" width="600" class="email-container" bgcolor="ffffff" style=" width: 600px; max-width: 600px; outline-color: #cccccc; outline-style: solid; outline-width: thin; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; border-spacing: 0 !important; border-collapse: separate !important; table-layout: medium !important; margin: 0 auto !important; color: #0596D4; border-width: thin;">
+                    <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                        <td>
+                            <a href="https://www.3cx.com/" target="_blank"><img src="https://downloads-global.3cx.com/downloads/misc/images/email-template/banner-header.jpg" width="600" height="53" alt="3CX" style="margin: 0"></a>
+                        </td>
+                    </tr>
+                    <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                        <td style="padding: 20px 25px 0px 30px;">
+                            <p style="color: #373737; font-family: sans-serif; font-size: 14px; margin-top: 0; line-height: 1; text-align: justify; display: block; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                Dear %%RECIPIENTNAME%%,
+                            </p>
+                            <p style="color: #373737; font-family: sans-serif; font-size: 14px; line-height: 1; text-align: justify; display: block; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                Your 3CX Scheduled Reports are ready.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; ">
+                        <td dir="ltr" style="color: #373737; padding: 0px 25px 20px 30px; font-family: sans-serif; font-size: 14px; line-height: 2; display: block; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important;">
+                            %%SCHEDULED_REPORTS_LIST_START%%
+                            %%IF_INTERNAL_RECIPIENT_START%%
+                            <div style="mso-special-format:bullet; line-height: 1; margin-top:10px">
+                                <a href="%%REPORT_URL%%" target="_blank" style="line-height: 1; font-size: 13px; color: #0596d4; text-decoration: none; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                    %%REPORT_NAME%%
+                                </a>
+                            </div>
+                            %%IF_INTERNAL_RECIPIENT_END%%
+
+                            %%IF_EXTERNAL_RECIPIENT_START%%
+                            <div style="mso-special-format:bullet; line-height: 1; margin-top:10px">
+                                    <span style="line-height: 1; font-size: 13px; text-decoration: none; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+                                        %%REPORT_NAME%%
+                                    </span>
+                            </div>
+                            %%IF_EXTERNAL_RECIPIENT_END%%
+                            %%SCHEDULED_REPORTS_LIST_END%%
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
