@@ -42,22 +42,25 @@ resource "azurerm_storage_container" "backup_container" {
 
 resource "azurerm_storage_account_local_user" "sftp_user" {
   name                 = "3cxbackup"
-#   storage_account_name = azurerm_storage_account.backup_storage.name
+  storage_account_id = azurerm_storage_account.backup_storage.id
+  #   storage_account_name = azurerm_storage_account.backup_storage.name
 #   home_directory       = azurerm_storage_container.backup_container.name
-
-  has_ssh_key = true
+  ssh_key_enabled      = true
 
   ssh_authorized_key {
     key = tls_private_key.rsa-4096-ssh-key.public_key_openssh
   }
 
-  permissions {
-    create = true
-    read   = true
-    write  = true
-    delete = false # Adjust as needed
-    list   = true
+  permission_scope {
+    permissions {
+      create = true
+      read   = true
+      write  = true
+      delete = false # Adjust as needed
+      list   = true
+    }
+    service = "blob"
+    resource_name = azurerm_storage_container.backup_container.name
   }
-  storage_account_id = azurerm_storage_account.backup_storage.id
 
 }
