@@ -9,7 +9,7 @@
 resource "azurerm_monitor_action_group" "ag" {
   name                = "${var.vm_name}_support_group"
   resource_group_name = azurerm_resource_group.RG-3CX-GROUP.name
-  short_name          = "${var.vm_name}_sg"
+  short_name          = "${var.vm_name}"
 
 
   #   arm_role_receiver {
