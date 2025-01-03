@@ -10,7 +10,7 @@ resource "tls_private_key" "rsa-4096-ssh-key" {
 }
 
 resource "azurerm_storage_account" "backup_storage" {
-  name                     = "backup-${random_string.backup_random.id}"
+  name                     = "backup${random_string.backup_random.id}"
   resource_group_name      = azurerm_resource_group.RG-3CX-GROUP.name
   location                 = azurerm_resource_group.RG-3CX-GROUP.location
   account_tier             = "Standard"
