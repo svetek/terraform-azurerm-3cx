@@ -14,7 +14,7 @@ output "vm_private_key" {
   value = tls_private_key.rsa_vm_ssh.private_key_pem
 }
 
-output "backup3cx-ssh-key" {
-  value = tls_private_key.rsa-4096-ssh-key.private_key_openssh
-  sensitive = true
-}
+# output "backup3cx-ssh-key" {
+#   value = tls_private_key.rsa-4096-ssh-key.private_key_openssh
+#   sensitive = true
+# }
