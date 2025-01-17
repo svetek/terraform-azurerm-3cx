@@ -135,32 +135,32 @@ resource "azurerm_key_vault_secret" "rsa_vm_ssh_public" {
 
 }
 
-# Save 3cx storage sftp account ssh key pub / private
-resource "azurerm_key_vault_secret" "backup_rsa_vm_ssh_private" {
-  name         = "backup-ssh-private"
-  value        = base64encode(tls_private_key.rsa-4096-ssh-key.private_key_pem)
-  key_vault_id = azurerm_key_vault.pbx_vault.id
-  content_type = "Need Base64 Decoded"
-  depends_on = [azurerm_role_assignment.role-secret-officer]
-
-  lifecycle {
-    prevent_destroy = true
-    ignore_changes = [ value ]
-  }
-
-}
-
-resource "azurerm_key_vault_secret" "backup_rsa_vm_ssh_public" {
-  name         = "backup-ssh-public"
-  value        = base64encode(tls_private_key.rsa-4096-ssh-key.public_key_openssh)
-  key_vault_id = azurerm_key_vault.pbx_vault.id
-  content_type = "Need Base64 Decoded"
-
-  depends_on = [azurerm_role_assignment.role-secret-officer]
-
-  lifecycle {
-    prevent_destroy = true
-    ignore_changes = [ value ]
-  }
-
-}
+# # Save 3cx storage sftp account ssh key pub / private
+# resource "azurerm_key_vault_secret" "backup_rsa_vm_ssh_private" {
+#   name         = "backup-ssh-private"
+#   value        = base64encode(tls_private_key.rsa-4096-ssh-key.private_key_pem)
+#   key_vault_id = azurerm_key_vault.pbx_vault.id
+#   content_type = "Need Base64 Decoded"
+#   depends_on = [azurerm_role_assignment.role-secret-officer]
+#
+#   lifecycle {
+#     prevent_destroy = true
+#     ignore_changes = [ value ]
+#   }
+#
+# }
+#
+# resource "azurerm_key_vault_secret" "backup_rsa_vm_ssh_public" {
+#   name         = "backup-ssh-public"
+#   value        = base64encode(tls_private_key.rsa-4096-ssh-key.public_key_openssh)
+#   key_vault_id = azurerm_key_vault.pbx_vault.id
+#   content_type = "Need Base64 Decoded"
+#
+#   depends_on = [azurerm_role_assignment.role-secret-officer]
+#
+#   lifecycle {
+#     prevent_destroy = true
+#     ignore_changes = [ value ]
+#   }
+#
+# }
