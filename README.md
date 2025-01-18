@@ -75,7 +75,7 @@ module "CX" {
   managed_disk_sizes = [""]
   managed_disk_type  = "Standard_LRS"
 
-  firewall_allow_voipproviders = ["XXX.82.238.134/32", "XXX.231.2.12/32"]
+  firewall_allow_voipproviders = ["XXX.XX.238.134/32", "XXX.XX.2.12/32"]
   firewall_allow_clientip = ["192.168.1.1/32"]
   vault_ad_sec_group = "L2 Support"
   email_notification = "<helpdesk_address>@svetek.com"
