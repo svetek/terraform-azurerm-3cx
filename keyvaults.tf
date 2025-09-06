@@ -79,7 +79,7 @@ resource "azurerm_key_vault_secret" "save_password_vault" {
   depends_on = [azurerm_role_assignment.role-secret-officer]
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
     ignore_changes = [ value ]
   }
 }
@@ -114,7 +114,7 @@ resource "azurerm_key_vault_secret" "rsa_vm_ssh_private" {
   depends_on = [azurerm_role_assignment.role-secret-officer]
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
     ignore_changes = [ value ]
   }
 
@@ -129,7 +129,7 @@ resource "azurerm_key_vault_secret" "rsa_vm_ssh_public" {
   depends_on = [azurerm_role_assignment.role-secret-officer]
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
     ignore_changes = [ value ]
   }
 
